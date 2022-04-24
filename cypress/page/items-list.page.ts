@@ -4,6 +4,7 @@ class ItemsListPage {
     private editItemButton: string
     private deleteItemButton: string
     private insightsButton: string
+    private validationRow: string
     
 
     constructor() {
@@ -12,6 +13,7 @@ class ItemsListPage {
         this.editItemButton=".mat-icon[data-automation='list-edit-button']"
         this.deleteItemButton=".mat-icon[data-automation='list-delete-button']"
         this.insightsButton="button.list-insights-button"
+        this.validationRow="[data-automation=list-item-row]"
         
     }
 
@@ -36,7 +38,7 @@ class ItemsListPage {
     }
 
     public ValidateItemIsDisplayed(name,sellIn,quality,type):void{
-        cy.get("[data-automation=list-item-row]").then(rows => {
+        cy.get(this.validationRow).then(rows => {
             let validated = false
             for (let i = 0; i < rows.length; i++) {
                 const cols = rows[i].querySelectorAll(".list-col")
@@ -51,7 +53,7 @@ class ItemsListPage {
         })
     } 
     public ValidateItemIsNotDisplayed(name,sellIn,quality,type):void{
-        cy.get("[data-automation=list-item-row]").then(rows => {
+        cy.get(this.validationRow).then(rows => {
             let validated = false
             for (let i = 0; i < rows.length; i++) {
                 const cols = rows[i].querySelectorAll(".list-col")
@@ -65,6 +67,18 @@ class ItemsListPage {
             expect(validated).to.be.false
         })
     } 
+
+    public validateInsights(type):void{
+        cy.get(".insights-grid .insights-value").then(quantity => {
+            let validated = false
+            for (let i = 0; i < quantity.length-1; i++) {
+                if(quantity[i].innerText === type && quantity[i+1].innerText === "1"){
+                    validated = true
+                }
+            }
+            expect(validated).to.be.true
+        })
+    }
 
 }
 export { ItemsListPage }

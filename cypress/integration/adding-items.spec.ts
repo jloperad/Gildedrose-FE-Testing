@@ -1,6 +1,5 @@
 import { ItemsListPage, AddItemPage } from "../page/index";
 
-
 describe("Adding Items", () => {
   let itemsListPage : ItemsListPage;
   let addItemPage : AddItemPage;
@@ -12,12 +11,10 @@ describe("Adding Items", () => {
 
   before(() => {
     itemsListPage = new ItemsListPage();
-    addItemPage = new AddItemPage;
-  })
-
+    addItemPage = new AddItemPage();
+  });
 
   it("then the item should be added, and be displayed ", () => {
-      
     itemsListPage.visitMenuContentPage();
 
     itemsListPage.AddItem();
@@ -29,6 +26,6 @@ describe("Adding Items", () => {
     addItemPage.confirmAdd();
 
     cy.wait(200);
-    itemsListPage.ValidateItemIsDisplayed(name,sellin,quality,type)
+    itemsListPage.ValidateItemIsDisplayed(name, sellin, quality, type);
   });
 });
