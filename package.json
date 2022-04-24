@@ -1,0 +1,25 @@
+{
+  "name": "gildedrose-fe-testing",
+  "version": "1.0.0",
+  "description": "This is a Workshop about Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jloperad/Gildedrose-FE-Testing.git"
+  },
+  "keywords": [
+    "ui-testing",
+    "dojo",
+    "practice",
+    "cypress"
+  ],
+  "author": "Juan Jose Lopera Duque <juanjoloperaduque@hotmail.com> (jloperad)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jloperad/Gildedrose-FE-Testing/issues"
+  },
+  "homepage": "https://github.com/jloperad/Gildedrose-FE-Testing#readme"
+}
